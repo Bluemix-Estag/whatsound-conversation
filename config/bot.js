@@ -13,7 +13,7 @@
 
 
 var watson = require('watson-developer-cloud');
-var CONVERSATION_NAME = "Conversation-Demo"; // Conversation name goes here.
+var CONVERSATION_NAME = "WhatSound-Conversation"; // Conversation name goes here.
 var cfenv = require('cfenv');
 
 var fs = require('fs');
@@ -91,9 +91,9 @@ function initConversation() {
                     conversationWorkspace = workspace.workspace_id;
                     console.log("Using Watson Conversation with username", conversationUsername, "and workspace", conversationWorkspace);
                 } else {
-                    console.log('Importing workspace from ./conversation/conversation-demo.json');
+                    console.log('Importing workspace from ./conversation/whatsound-conversation.json');
                     // create the workspace
-                    const watsonWorkspace = JSON.parse(fs.readFileSync('./conversation/conversation-demo.json'));
+                    const watsonWorkspace = JSON.parse(fs.readFileSync('./conversation/whatsound-conversation.json'));
                     // force the name to our expected name
                     watsonWorkspace.name = workspaceName;
                     conversation.createWorkspace(watsonWorkspace, (createErr, workspace) => {

@@ -1,5 +1,9 @@
 ---
 applications:
- - name: whatsound-conversation
-   random-route: true
-   memory: 128M
+- path: .
+  instances: 1
+  domain: mybluemix.net
+  name: whatsound-conversation
+  host: whatsound-conversation
+  disk_quota: 256M
+  

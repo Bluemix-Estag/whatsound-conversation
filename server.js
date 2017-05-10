@@ -5,7 +5,9 @@ var chatbot = require('./config/bot.js');
 var bodyParser = require('body-parser')
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 
 // parse application/json
 app.use(bodyParser.json())
@@ -33,16 +35,24 @@ app.use(bodyParser.json())
 
 
 
-app.post("/", function (req, res) {    
-    processChatMessage(req,res);
+app.post("/", function (req, res) {
+    var params = req.body;
+    console.log('passou: '+ JSON.stringify(params));
+    if (Object.keys(params).length != 0 ) {
+        processChatMessage(req, res);
+    } else {
+        res.status(400).json({
+            error: "true"
+        });
+    }
 });
 
-function processChatMessage(req,res){
-    chatbot.sendMessage(req,function(err,data){
-        if(err){
-            console.log('Error in sending message: ',err);
+function processChatMessage(req, res) {
+    chatbot.sendMessage(req, function (err, data) {
+        if (err) {
+            console.log('Error in sending message: ', err);
             res.status(err.code || 500).json(err);
-        }else{
+        } else {
             var context = data.context;
             res.status(200).json(data);
         }
@@ -59,6 +69,6 @@ app.use(express.static(__dirname + '/views'));
 
 
 var port = process.env.PORT || 5000
-app.listen(port, function() {
+app.listen(port, function () {
     console.log("To view your app, open this link in your browser: http://localhost:" + port);
 });

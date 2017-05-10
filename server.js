@@ -53,38 +53,6 @@ function processChatMessage(req,res){
 
 
 
-
-
-/**
-* Endpoint to get a JSON object of a music from spotify databases
-* REST API example:
-* <code>
-* GET http://whatsound.mybluemix.net/getMusic?music=<music-name>
-* <code>
-*
-* Response:
-* { name: "Music's name" , artist: "Artist's name", album: "Music's album", uri: "" }
-*Spotify 
-https://api-routes.mybluemix.net/spotify/musica/musica=<nome-musica>
-
-
-retorna: JSON { nome , artista , album , uri-iframe }
-*/
-
-
-
-/**
-*Spotify 
-https://api-routes.mybluemix.net/spotify/artista/artista=<nome-artista>
-
-
-retorna: JSON { nome , artista , album , uri-iframe }
-*/
-
-
-
-
-
 //serve static file (index.html, images, css)
 app.use(express.static(__dirname + '/views'));
 

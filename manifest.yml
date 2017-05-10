@@ -1,5 +1,5 @@
 ---
 applications:
- - name: whatsound
+ - name: whatsound-conversation
    random-route: true
    memory: 128M

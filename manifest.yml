@@ -6,4 +6,5 @@ applications:
   name: whatsound-conversation
   host: whatsound-conversation
   disk_quota: 256M
+  memory: 256M
   

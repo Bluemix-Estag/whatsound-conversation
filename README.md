@@ -12,7 +12,7 @@ REST API example:
 
 Sending a JSON Object having context object and text, to continue Watson Conversation's chat
 
-if there is no context JSON object, Watson Conversation will considere as a new Char. ( later on, context handler will be built-in )
+if there is no context JSON object, Watson Conversation will consider it as a new Char. ( later on, context handler will be built-in )
 
 # Response:
 
